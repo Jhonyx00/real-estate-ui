@@ -1,4 +1,5 @@
 import { Item } from "../interfaces/item";
+import { SinglePostItem } from "../interfaces/singlePostItem";
 
 export const listData: Item[] = [
   {
@@ -91,7 +92,7 @@ export const listData: Item[] = [
   },
 ];
 
-export const singlePostData = {
+export const singlePostData: SinglePostItem = {
   id: 1,
   title: "Beautiful Apartment",
   price: 1200,
