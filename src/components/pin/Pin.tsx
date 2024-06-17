@@ -10,7 +10,7 @@ function Pin({ id, latitude, longitude, img, title, bedroom, price }: any) {
           <img src={img} alt="" />
           <div className="text-container">
             <Link to={`${id}`}>{title}</Link>
-            <span className="bed">{bedroom} bedroom</span>
+            <span>{bedroom} bedroom</span>
             <b>$ {price}</b>
           </div>
         </div>
