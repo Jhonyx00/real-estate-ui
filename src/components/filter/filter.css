@@ -1,0 +1,55 @@
+.filter {
+  display: flex;
+  gap: 10px;
+  flex-direction: column;
+
+  button {
+    border: none;
+    cursor: pointer;
+    width: 5em;
+    height: 3em;
+    background-color: rgb(255, 222, 104);
+  }
+  .search-button {
+    padding: 10px;
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  h2 {
+    font-weight: 300;
+  }
+
+  .item {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+
+    label {
+      font-size: 12px;
+    }
+
+    input,
+    select {
+      width: 100px;
+      padding: 10px;
+      border: 1px solid gray;
+      border-radius: 5px;
+    }
+  }
+
+  .top {
+    input {
+      width: 100%;
+    }
+  }
+  .bottom {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 10px;
+  }
+}

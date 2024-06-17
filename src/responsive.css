@@ -1,0 +1,50 @@
+@media (max-width: 1366px) {
+  .layout {
+    background-color: rgb(255, 255, 255);
+  }
+}
+
+@media (max-width: 1024px) {
+  .layout {
+    .logo {
+      span {
+        display: none;
+      }
+    }
+
+    .right {
+      background-color: transparent;
+    }
+  }
+}
+
+@media (max-width: 738px) {
+  .layout {
+    a {
+      display: none;
+    }
+
+    .logo {
+      span {
+        display: initial;
+      }
+    }
+
+    .right {
+      .buttons {
+        display: none;
+      }
+      .menuIcon {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .menu {
+        a {
+          display: initial;
+        }
+      }
+    }
+  }
+}

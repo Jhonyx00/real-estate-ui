@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+    <!-- Ellipse -->
+    <ellipse cx="40" cy="40" rx="30" ry="30" stroke="gray" stroke-width="6" style="fill:none;" />
+    <line x1="60" y1="60" x2="90" y2="90" stroke="gray" stroke-width="6" />
+</svg>
