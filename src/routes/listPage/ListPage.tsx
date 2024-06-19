@@ -18,7 +18,7 @@ function ListPage() {
               key={item.id}
               id={item.id}
               title={item.title}
-              img={item.img}
+              images={item.images}
               bedroom={item.bedroom}
               bathroom={item.bathroom}
               price={item.price}
@@ -31,7 +31,7 @@ function ListPage() {
       </div>
 
       <div className="map-container">
-        <Map items={data} />
+        <Map item={data} />
       </div>
     </div>
   );

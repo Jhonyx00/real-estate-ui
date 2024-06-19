@@ -12,7 +12,7 @@ function Card(item: Item) {
   return (
     <div className="card">
       <Link to={`/${item.id}`} className="image-container">
-        <img src={item.img} alt="" />
+        <img src={item.images[0]} alt="" />
       </Link>
       <div className="text-container">
         <h2 className="title">

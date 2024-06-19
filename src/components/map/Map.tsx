@@ -17,12 +17,12 @@ function Map(mapProps: MapProps) {
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
-      {mapProps.items.map((item: Item) => (
+      {mapProps.item.map((item: Item) => (
         <Pin
           key={item.id}
           id={item.id}
           title={item.title}
-          img={item.img}
+          img={item.images}
           bedroom={item.bedroom}
           bathroom={item.bathroom}
           price={item.price}

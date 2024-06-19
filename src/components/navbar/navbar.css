@@ -1,7 +1,8 @@
 nav {
-  display: grid;
-  grid-template-columns: 60vw 40vw;
+  display: flex;
+  justify-content: space-between;
   height: 60px;
+  border-bottom: 1px solid gray;
 
   a {
     transition: all 0.4s ease;
@@ -33,7 +34,6 @@ nav {
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    background-color: #f3e9dc;
     height: 100%;
 
     .buttons {
