@@ -47,6 +47,53 @@ nav {
       padding: 10px 24px;
     }
 
+    .user {
+      display: flex;
+      align-items: center;
+
+      gap: 1em;
+
+      margin: 0em 1em;
+
+      span {
+        font-weight: bold;
+      }
+
+      img {
+        width: 2.8em;
+        height: 2.8em;
+        object-fit: cover;
+        border-radius: 50%;
+      }
+
+      span {
+      }
+
+      .profile {
+        padding: 0.4em;
+        background-color: rgb(255, 222, 104);
+        cursor: pointer;
+        position: relative;
+
+        span {
+          font-weight: 400;
+        }
+        .notification {
+          position: absolute;
+          top: -0.5em;
+          right: -0.5em;
+          background-color: red;
+          color: white;
+          border-radius: 50%;
+          width: 1.2em;
+          height: 1.2em;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+      }
+    }
+
     .register {
       background-color: rgb(255, 222, 104);
     }
@@ -58,6 +105,8 @@ nav {
 
       img {
         width: 2em;
+        height: 2em;
+        object-fit: contain;
         cursor: pointer;
       }
     }
@@ -92,8 +141,9 @@ nav {
 }
 
 @media (max-width: 738px) {
-  /* .buttons {
-    height: 100px;
-    background-color: dodgerblue;
-  } */
+  .user {
+    span {
+      display: none;
+    }
+  }
 }
