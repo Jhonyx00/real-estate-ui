@@ -1,3 +1,4 @@
+import Chat from "../../components/chat/Chat";
 import List from "../../components/list/List";
 import "./profilePage.css";
 function ProfilePage() {
@@ -37,7 +38,9 @@ function ProfilePage() {
           <button>Update Profile</button>
         </div>
       </div>
-      <div className="chat-container">Chat</div>
+      <div className="chat-container">
+        <Chat></Chat>
+      </div>
     </div>
   );
 }

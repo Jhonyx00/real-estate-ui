@@ -1,9 +1,11 @@
 .profile-page {
-  display: grid;
-  grid-template-columns: 60vw 40vw;
-  height: 100%;
+  display: flex;
+  height: calc(100vh - 60px);
+  overflow-y: auto;
+  scrollbar-width: thin;
 
   .details {
+    width: 60vw;
     padding: 1em;
     gap: 30px;
 
@@ -51,7 +53,39 @@
 
   .chat-container {
     background-color: rgb(243, 243, 243);
-    padding: 1em;
+    width: 40vw;
     height: 100%;
+  }
+}
+
+@media (max-width: 1024px) {
+  .profile-page {
+    display: grid;
+    place-items: center;
+    .details {
+      width: 70vw;
+      flex: none;
+      height: max-content;
+    }
+
+    .chat-container {
+      width: 70vw;
+      flex: none;
+      height: max-content;
+    }
+  }
+}
+
+@media (max-width: 738px) {
+  .profile-page {
+    display: grid;
+    place-items: center;
+    .details {
+      width: 95vw;
+    }
+
+    .chat-container {
+      width: 95vw;
+    }
   }
 }
