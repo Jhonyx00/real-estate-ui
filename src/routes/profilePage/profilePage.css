@@ -1,17 +1,16 @@
 .profile-page {
   display: flex;
-  height: calc(100vh - 60px);
   overflow-y: auto;
   scrollbar-width: thin;
+  height: calc(100vh - 60px);
 
   .details {
-    width: 60vw;
+    flex: 3;
     padding: 1em;
     gap: 30px;
-
     overflow: auto;
     scrollbar-width: thin;
-    height: calc(100vh - 60px);
+
     .title {
       display: flex;
       align-items: center;
@@ -28,6 +27,7 @@
         border: none;
       }
     }
+
     .info {
       display: flex;
       flex-direction: column;
@@ -53,7 +53,7 @@
 
   .chat-container {
     background-color: rgb(243, 243, 243);
-    width: 40vw;
+    flex: 2;
     height: 100%;
   }
 }

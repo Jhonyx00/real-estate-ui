@@ -9,6 +9,7 @@ function ProfilePage() {
           <h2>User Information</h2>
           <button>Update Profile</button>
         </div>
+
         <div className="info">
           <span>
             Avatar:

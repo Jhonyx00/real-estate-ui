@@ -103,9 +103,7 @@ function SinglePage() {
         <p className="title">Location</p>
 
         <div className="map-container">
-          <div className="m">
-            <Map item={data} />
-          </div>
+          <Map item={data} />
         </div>
 
         <div className="buttons">

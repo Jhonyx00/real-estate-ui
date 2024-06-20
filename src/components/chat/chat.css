@@ -9,7 +9,7 @@
     gap: 0.8em;
     overflow-y: auto;
     scrollbar-width: thin;
-    padding: 0.8em;
+    padding: 1em;
     h2 {
       font-weight: 300;
     }
