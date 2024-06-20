@@ -1,15 +1,18 @@
 .homePage {
   display: flex;
   height: 100%;
+  height: calc(100vh - 60px);
+  overflow-y: auto;
+  scrollbar-width: thin;
 
   .textContainer {
     flex: 3;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    height: 100%;
 
     gap: 50px;
-    height: 100%;
     padding: 1em;
 
     .title {
@@ -30,6 +33,9 @@
   .imageContainer {
     flex: 2;
     background-color: #f3e9dc;
+    height: 100%;
+    display: flex;
+    justify-content: center;
     img {
       width: 100%;
       height: 100%;
@@ -38,19 +44,53 @@
   }
 }
 
-@media (max-width: 1366px) {
-}
-
 @media (max-width: 1024px) {
-  .imageContainer {
-    display: none;
+  .homePage {
+    display: grid;
+    place-items: center;
+    .textContainer {
+      width: 70vw;
+      flex: none;
+      height: max-content;
+      .boxes {
+        .box {
+          p,
+          h2 {
+            font-size: 1.2em;
+          }
+        }
+      }
+    }
+    .imageContainer {
+      display: none;
+    }
   }
 }
 
 @media (max-width: 738px) {
   .homePage {
+    display: grid;
+    place-items: center;
     .textContainer {
       justify-content: flex-start;
+      gap: 1em;
+      width: 95vw;
+      .title {
+        font-size: 2em;
+      }
+
+      p {
+        font-size: 1em;
+      }
+    }
+
+    .boxes {
+      .box {
+        h2,
+        p {
+          font-size: 0.9em;
+        }
+      }
     }
   }
 }
