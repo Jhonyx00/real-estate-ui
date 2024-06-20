@@ -1,5 +1,4 @@
 import "./filter.css";
-import SearchIcon from "../../../public/search-icon.svg";
 
 function Filter() {
   return (
@@ -67,7 +66,7 @@ function Filter() {
         </div>
 
         <button className="search-button">
-          <img src={SearchIcon} alt="" />
+          <img src="./search-icon.svg" alt="" />
         </button>
       </div>
     </div>

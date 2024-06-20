@@ -79,6 +79,15 @@
 
       .chat-message {
         width: 50%;
+        border: 1px solid lightgray;
+        border-radius: 1em;
+        display: flex;
+        flex-wrap: wrap;
+
+        p {
+          padding: 0.4em;
+          font-size: 1em;
+        }
       }
 
       .own {
@@ -91,6 +100,7 @@
         background-color: rgb(255, 222, 104);
         padding: 0.4em;
         border-radius: 0.6em;
+        margin: 0.6em;
       }
     }
 
@@ -100,19 +110,21 @@
       align-items: center;
       height: 4em;
       justify-content: space-between;
+      padding: 0.4em;
 
       textarea {
         flex: 3;
         height: 100%;
-        border: none;
-        padding: 1em;
+        padding: 0.4em;
+        font-size: 1.4em;
       }
 
       button {
         flex: 1;
-        height: 100%;
         background-color: rgb(255, 222, 104);
         border: none;
+        padding: 0.6em;
+        height: 100%;
       }
     }
   }

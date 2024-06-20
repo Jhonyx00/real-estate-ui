@@ -2,7 +2,6 @@ import { useState } from "react";
 import { Query } from "../../interfaces/query";
 
 import "./searchbar.css";
-import SearchIcon from "../../../public/search-icon.svg";
 
 const types = ["buy", "rent"];
 function SearchBar() {
@@ -47,7 +46,7 @@ function SearchBar() {
         />
 
         <button className="search-button">
-          <img src={SearchIcon} alt="" />
+          <img src="./search-icon.svg" alt="" />
         </button>
       </form>
     </div>

@@ -2,12 +2,6 @@ import { Link } from "react-router-dom";
 import "./card.css";
 import { Item } from "../../interfaces/item";
 
-import Bed from "../../../public/bed.png";
-import Bath from "../../../public/bath.png";
-import Save from "../../../public/save.png";
-import Chat from "../../../public/chat.png";
-import Pin from "../../../public/pin.png";
-
 function Card(item: Item) {
   return (
     <div className="card">
@@ -19,7 +13,7 @@ function Card(item: Item) {
           <Link to={`/${item.id}`}>{item.title}</Link>
         </h2>
         <p className="address">
-          <img src={Pin} alt="" />
+          <img src="./pin.png" alt="" />
           <span>{item.address}</span>
         </p>
 
@@ -28,22 +22,22 @@ function Card(item: Item) {
         <div className="card-bottom">
           <div className="features">
             <div className="feature">
-              <img src={Bed} alt="" />
+              <img src="/bed.png" alt="" />
               <span>{item.bedroom} bedroom</span>
             </div>
             <div className="feature">
-              <img src={Bath} alt="" />
+              <img src="/bath.png" alt="" />
               <span>{item.bathroom} bathroom</span>
             </div>
           </div>
 
           <div className="icons">
             <div className="icon">
-              <img src={Save} alt="" />
+              <img src="/save.png" alt="" />
             </div>
 
             <div className="icon">
-              <img src={Chat} alt="" />
+              <img src="/chat.png" alt="" />
             </div>
           </div>
         </div>

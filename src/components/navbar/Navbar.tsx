@@ -1,6 +1,4 @@
 import "./navbar.css";
-import Logo from "../../../public/hexagon.svg";
-import MenuIcon from "../../../public/menu.png";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
@@ -12,7 +10,7 @@ function Navbar() {
     <nav>
       <div className="left">
         <a href="" className="logo">
-          <img src={Logo} alt="" />
+          <img src="./hexagon.svg" alt="" />
           <span>RealEstate</span>
         </a>
         <a href="/">Home</a>
@@ -47,7 +45,7 @@ function Navbar() {
 
         <div className="menuIcon">
           <img
-            src={MenuIcon}
+            src="./menu-icon.svg"
             alt=""
             onClick={() => {
               setOpen((prev) => !prev);
