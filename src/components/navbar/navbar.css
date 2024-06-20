@@ -66,14 +66,12 @@ nav {
         border-radius: 50%;
       }
 
-      span {
-      }
-
       .profile {
         padding: 0.4em;
         background-color: rgb(255, 222, 104);
         cursor: pointer;
         position: relative;
+        border-radius: 0.8em;
 
         span {
           font-weight: 400;
