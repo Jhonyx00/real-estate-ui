@@ -1,0 +1,140 @@
+.new-post-page {
+  display: flex;
+  height: 100%;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  height: calc(100vh - 60px);
+
+  .form-container {
+    padding: 1em;
+    flex: 3;
+    height: 100%;
+    overflow: auto;
+    scrollbar-width: thin;
+    form {
+      display: flex;
+      justify-content: space-between;
+      gap: 1em;
+      flex-wrap: wrap;
+      padding: 1em;
+      box-shadow: 0px 0px 10px 1px lightgray;
+      border-radius: 0.8em;
+      margin: 1em 0em;
+
+      .item {
+        width: 30%;
+        display: flex;
+        flex-direction: column;
+        gap: 0.4em;
+
+        input {
+          padding: 1em;
+          border: 1px solid gray;
+          border-radius: 0.8em;
+        }
+
+        select {
+          padding: 1em;
+          border-radius: 0.8em;
+        }
+      }
+      .description {
+        width: 100%;
+        height: 200px;
+
+        textarea {
+          border-radius: 0.8em;
+          height: 200px;
+          padding: 1em;
+        }
+      }
+      button {
+        padding: 1em;
+        border-radius: 0.8em;
+        border: none;
+        background-color: teal;
+        color: white;
+        font-weight: bold;
+        cursor: pointer;
+      }
+
+      .send-button {
+        background-color: teal;
+        width: 30%;
+        border-radius: 1em;
+        border: none;
+        color: white;
+        font-weight: bold;
+        cursor: pointer;
+      }
+      span {
+        color: red;
+      }
+
+      a {
+        font-size: 0.9em;
+        color: gray;
+        border-bottom: 1px solid gray;
+        width: max-content;
+      }
+    }
+  }
+
+  .side-container {
+    flex: 2;
+    background-color: rgb(243, 243, 243);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  .new-post-page {
+    display: grid;
+    place-items: center;
+    .form-container {
+      width: 80vw;
+      height: max-content;
+    }
+
+    .side-container {
+      display: none;
+    }
+  }
+}
+
+@media (max-width: 738px) {
+  .new-post-page {
+    display: grid;
+    place-items: center;
+
+    .form-container {
+      width: 95vw;
+    }
+
+    .side-container {
+      display: none;
+    }
+  }
+}
+
+@media (min-width: 0px) and (max-width: 597px) {
+  .new-post-page {
+    .form-container {
+      form {
+        justify-content: flex-end;
+
+        .item {
+          width: 100%;
+        }
+      }
+    }
+  }
+}
