@@ -13,7 +13,7 @@ function Register() {
           <input type="text" name="password" placeholder="Password" />
           <button disabled>Register</button>
           {error && <span>{error}</span>}
-          <Link to={"/login"}></Link>
+          <Link to={"/login"}>Do you have an account?</Link>
         </form>
       </div>
       <div className="image-container">

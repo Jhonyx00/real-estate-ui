@@ -43,7 +43,7 @@
       a {
         font-size: 0.9em;
         color: gray;
-        border: 1px solid gray;
+        border-bottom: 1px solid gray;
         width: max-content;
       }
     }
