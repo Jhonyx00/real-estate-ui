@@ -45,7 +45,7 @@ function Navbar() {
 
         <div className="menuIcon">
           <img
-            src="./menu-icon.svg"
+            src="./menu.png"
             alt=""
             onClick={() => {
               setOpen((prev) => !prev);
