@@ -65,7 +65,7 @@
 }
 
 @media (max-width: 1024px) {
-  .register {
+  .login {
     display: grid;
     place-items: center;
     .form-container {
@@ -81,7 +81,7 @@
 }
 
 @media (max-width: 738px) {
-  .register {
+  .login {
     display: grid;
     place-items: center;
     .form-container {

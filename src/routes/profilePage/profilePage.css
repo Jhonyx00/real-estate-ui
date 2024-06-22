@@ -32,7 +32,7 @@
     .info {
       display: flex;
       flex-direction: column;
-      gap: 0.4em;
+      gap: 0.8em;
       padding: 1em;
       margin: 1em 0em;
       border-radius: 0.8em;
@@ -42,6 +42,17 @@
         display: flex;
         align-items: center;
         gap: 0.6em;
+      }
+
+      button {
+        padding: 1em;
+        border-radius: 0.8em;
+        border: none;
+        background-color: teal;
+        color: white;
+        font-weight: bold;
+        cursor: pointer;
+        width: 30%;
       }
       img {
         width: 2em;
