@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Chat from "../../components/chat/Chat";
 import List from "../../components/list/List";
 import apiRequest from "../../lib/apiRequest";
@@ -25,7 +25,10 @@ function ProfilePage() {
       <div className="details">
         <div className="title">
           <h2>User Information</h2>
-          <button>Update Profile</button>
+
+          <Link to={"update"}>
+            <button>Update Profile</button>
+          </Link>
         </div>
 
         <div className="info">

@@ -44,10 +44,6 @@ function App() {
           path: "/add",
           element: <NewPostPage />,
         },
-        {
-          path: "/update",
-          element: <ProfileUpdatePage />,
-        },
       ],
     },
     {
@@ -57,6 +53,10 @@ function App() {
         {
           path: "/profile",
           element: <ProfilePage />,
+        },
+        {
+          path: "/profile/update",
+          element: <ProfileUpdatePage />,
         },
       ],
     },
