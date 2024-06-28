@@ -6,21 +6,16 @@ import UploadWidget from "../../components/uploadWidget/UploadWidget";
 import { useNavigate } from "react-router-dom";
 function NewPostPage() {
   const [error, setError] = useState<string>("");
-
-  const [value, setValue] = useState<string>("");
+  const [isLoading, setIsLoading] = useState<boolean>(false);
   const [images, setImages] = useState<string[]>([]);
 
   const navigate = useNavigate();
 
-  const handleChange = (e: any) => {
-    setValue(e.target.value);
-  };
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+    setIsLoading(true);
     const formData = new FormData(event.currentTarget);
     const inputs = Object.fromEntries(formData);
-
-    console.log(formData);
 
     try {
       const res = await apiRequest.post("/posts", {
@@ -49,8 +44,11 @@ function NewPostPage() {
         },
       });
       navigate("/" + res.data.id);
-    } catch (error) {
+    } catch (error: any) {
+      setError(error.response.data.message);
       console.log(error);
+    } finally {
+      setIsLoading(false);
     }
   };
   return (
@@ -72,11 +70,7 @@ function NewPostPage() {
           </div>
           <div className="item description">
             <label htmlFor="description">Description</label>
-            <textarea
-              name="description"
-              id="description"
-              onChange={handleChange}
-            ></textarea>
+            <textarea name="description" id="description"></textarea>
           </div>
           <div className="item">
             <label htmlFor="city">City</label>
@@ -159,7 +153,9 @@ function NewPostPage() {
             <input type="number" min={0} id="restaurant" name="restaurant" />
           </div>
 
-          <button className="send-button">Add</button>
+          <button className="send-button" disabled={isLoading}>
+            Add
+          </button>
 
           {error && <span className="error">{error}</span>}
         </form>
