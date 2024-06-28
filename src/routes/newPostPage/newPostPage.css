@@ -28,46 +28,44 @@
         gap: 0.4em;
 
         input {
-          padding: 1em;
+          padding: 0.6em;
           border: 1px solid gray;
-          border-radius: 0.8em;
+          border-radius: 0.4em;
+          font-size: 1em;
         }
 
         select {
-          padding: 1em;
-          border-radius: 0.8em;
+          padding: 0.8em;
+          border-radius: 0.4em;
         }
       }
       .description {
         width: 100%;
-        height: 200px;
-
+        height: 100%;
         textarea {
-          border-radius: 0.8em;
-          height: 200px;
-          padding: 1em;
+          padding: 0.6em;
+          border-radius: 0.4em;
+          height: 10em;
+          max-width: 100%;
+          min-width: 100%;
+          max-height: 16em;
+          scrollbar-width: thin;
+          min-height: 10em;
         }
-      }
-      button {
-        padding: 1em;
-        border-radius: 0.8em;
-        border: none;
-        background-color: teal;
-        color: white;
-        font-weight: bold;
-        cursor: pointer;
       }
 
       .send-button {
         background-color: teal;
         width: 30%;
-        border-radius: 1em;
+        height: auto;
+        border-radius: 0.8em;
         border: none;
         color: white;
         font-weight: bold;
         cursor: pointer;
       }
-      span {
+
+      .error {
         color: red;
       }
 
@@ -86,12 +84,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-
-    img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
+    flex-direction: column;
   }
 }
 

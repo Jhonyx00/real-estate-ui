@@ -1,19 +1,70 @@
 import { useState } from "react";
 import "./newPostPage.css";
+
+import apiRequest from "../../lib/apiRequest";
+import UploadWidget from "../../components/uploadWidget/UploadWidget";
+import { useNavigate } from "react-router-dom";
 function NewPostPage() {
-  const [error, setError] = useState<boolean>(false);
+  const [error, setError] = useState<string>("");
+
+  const [value, setValue] = useState<string>("");
+  const [images, setImages] = useState<string[]>([]);
+
+  const navigate = useNavigate();
+
+  const handleChange = (e: any) => {
+    setValue(e.target.value);
+  };
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    const formData = new FormData(event.currentTarget);
+    const inputs = Object.fromEntries(formData);
+
+    console.log(formData);
+
+    try {
+      const res = await apiRequest.post("/posts", {
+        postData: {
+          title: inputs.title,
+          price: parseInt(inputs.price as string),
+          images: images,
+          address: inputs.address,
+          city: inputs.city,
+          bedroom: parseInt(inputs.bedroom as string),
+          bathroom: parseInt(inputs.bathroom as string),
+          type: inputs.type,
+          property: inputs.property,
+          latitude: inputs.latitude,
+          longitude: inputs.longitude,
+        },
+        postDetail: {
+          description: inputs.description,
+          utilities: inputs.utilities,
+          pet: inputs.pet,
+          income: inputs.income,
+          size: parseInt(inputs.size as string),
+          school: parseInt(inputs.school as string),
+          bus: parseInt(inputs.bus as string),
+          restaurant: parseInt(inputs.restaurant as string),
+        },
+      });
+      navigate("/" + res.data.id);
+    } catch (error) {
+      console.log(error);
+    }
+  };
   return (
     <div className="new-post-page">
       <div className="form-container">
         <h2>Add New Post</h2>
-        <form>
+        <form onSubmit={handleSubmit}>
           <div className="item">
             <label htmlFor="title">Title</label>
             <input type="text" id="title" name="title" />
           </div>
           <div className="item">
             <label htmlFor="price">Price</label>
-            <input type="text" id="price" name="price" />
+            <input type="number" id="price" name="price" />
           </div>
           <div className="item">
             <label htmlFor="address">Address</label>
@@ -21,7 +72,11 @@ function NewPostPage() {
           </div>
           <div className="item description">
             <label htmlFor="description">Description</label>
-            <textarea id="description" name="description"></textarea>
+            <textarea
+              name="description"
+              id="description"
+              onChange={handleChange}
+            ></textarea>
           </div>
           <div className="item">
             <label htmlFor="city">City</label>
@@ -29,11 +84,11 @@ function NewPostPage() {
           </div>
           <div className="item">
             <label htmlFor="bedroom">Bedroom Number</label>
-            <input type="text" min={1} id="bedroom" name="bedroom" />
+            <input type="number" min={1} id="bedroom" name="bedroom" />
           </div>
           <div className="item">
             <label htmlFor="bathroom">Bathroom Number</label>
-            <input type="text" min={1} id="bathroom" name="bathroom" />
+            <input type="number" min={1} id="bathroom" name="bathroom" />
           </div>
           <div className="item">
             <label htmlFor="latitude">Latitude</label>
@@ -106,11 +161,15 @@ function NewPostPage() {
 
           <button className="send-button">Add</button>
 
-          {error && <span>{error}</span>}
+          {error && <span className="error">{error}</span>}
         </form>
       </div>
       <div className="side-container">
-        <input type="file" name="images" id="images" />
+        <UploadWidget
+          multiple={true}
+          currentImage={images}
+          setState={setImages}
+        />
       </div>
     </div>
   );

@@ -8,9 +8,8 @@ import UploadWidget from "../../components/uploadWidget/UploadWidget";
 function ProfileUpdatePage() {
   const [error, setError] = useState<boolean>(false);
   const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [avatar, setAvatar] = useState<string[]>([]);
   const { currentUser, updateUser } = useContext(AuthContext);
-
-  const [avatar, setAvatar] = useState<string>("");
 
   const navigate = useNavigate();
 
@@ -26,13 +25,13 @@ function ProfileUpdatePage() {
         username,
         email,
         password,
-        avatar,
+        avatar: avatar[0],
       });
 
       updateUser(res.data);
       navigate("/profile");
     } catch (error: any) {
-      console.log("error garrafal", error);
+      console.log("error", error);
       setError(error.response.data.message);
     } finally {
       setIsLoading(false);
@@ -68,8 +67,11 @@ function ProfileUpdatePage() {
         </form>
       </div>
       <div className="side-container">
-        <img src={avatar || currentUser.avatar || "/avatar.png"} alt="" />
-        <UploadWidget setAvatar={setAvatar}></UploadWidget>
+        <UploadWidget
+          setState={setAvatar}
+          currentImage={currentUser.avatar}
+          multiple={false}
+        />
       </div>
     </div>
   );

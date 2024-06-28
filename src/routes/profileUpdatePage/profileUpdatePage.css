@@ -56,13 +56,6 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
-
-    img {
-      width: 15em;
-      height: 15em;
-      object-fit: cover;
-      border: 2px solid gray;
-    }
   }
 }
 

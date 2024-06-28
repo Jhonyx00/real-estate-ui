@@ -48,14 +48,13 @@ function ProfilePage() {
 
         <div className="title">
           <h2>My List</h2>
-          <button>Create New Post</button>
+          <Link to={"/add"}>
+            <button>Create New Post</button>
+          </Link>
         </div>
-
         <List />
-
         <div className="title">
-          <h2>Save List</h2>
-          <button>Update Profile</button>
+          <h2>Saved List</h2>
         </div>
       </div>
       <div className="chat-container">

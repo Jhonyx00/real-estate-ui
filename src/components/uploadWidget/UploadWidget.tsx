@@ -2,44 +2,77 @@ import { Dispatch, SetStateAction, useState } from "react";
 import "./uploadWidget.css";
 
 function UploadWidget({
-  setAvatar,
+  currentImage,
+  multiple,
+  setState,
 }: {
-  setAvatar: Dispatch<SetStateAction<string>>;
+  currentImage: string[];
+  multiple: boolean;
+  setState: Dispatch<SetStateAction<string[]>>;
 }) {
-  const [error, setError] = useState<string>("");
-  const handleChange = async (event: React.ChangeEvent<HTMLInputElement>) => {
-    const newFile = event.currentTarget.files?.[0];
-    const maxSize = 2000000;
-    if (newFile) {
-      console.log(newFile);
+  const [preview, setPreview] = useState<ArrayBuffer | string | null>();
 
-      if (newFile.size > maxSize) {
-        setError("Image too large");
-        return;
+  const UPLOAD_PRESET = "estate";
+  const CLOUD_NAME = "dxcv8y8fz";
+
+  const handleUpload = async (e: React.FormEvent<HTMLInputElement>) => {
+    const target = e.currentTarget;
+    const files = target.files;
+    const fileReader = new FileReader();
+
+    fileReader.onload = async () => {
+      setPreview(fileReader.result);
+    };
+
+    if (!files) return;
+
+    const formData = new FormData();
+
+    formData.append("upload_preset", UPLOAD_PRESET);
+    Array.from(files).forEach(async (file, index) => {
+      formData.append("file", file);
+
+      try {
+        const res: Response = await fetch(
+          `https://api.cloudinary.com/v1_1/${CLOUD_NAME}/upload`,
+          { method: "POST", body: formData }
+        );
+        const data = await res.json();
+        setState((prev: string[]) => [...prev, data.secure_url]);
+        console.log(data);
+        fileReader.readAsDataURL(files[index]);
+      } catch (error) {
+        console.log(error);
       }
-      setError("");
-      const reader = new FileReader();
-      reader.onload = (e) => {
-        setAvatar(e.target?.result as string);
-      };
-      reader.readAsDataURL(newFile);
-    }
+    });
   };
+
   return (
-    <div className="upload-container">
+    <>
+      {Array.isArray(currentImage) ? (
+        <div className="images-container">
+          {currentImage.map((image, index) => (
+            <img src={image} key={index} alt="" />
+          ))}
+        </div>
+      ) : (
+        <img
+          src={(preview as string) || currentImage || "/avatar.png"}
+          alt=""
+          className="profile-image"
+        />
+      )}
+      <input
+        type="file"
+        id="file-input"
+        accept="image/*"
+        multiple={multiple}
+        onChange={handleUpload}
+      />
       <label htmlFor="file-input" className="upload-label">
         Upload
       </label>
-      <input
-        type="file"
-        accept="image/*"
-        name=""
-        id="file-input"
-        onChange={handleChange}
-      />
-      {error && <span className="error">{error}</span>}
-    </div>
+    </>
   );
 }
-
 export default UploadWidget;
