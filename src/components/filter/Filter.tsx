@@ -2,7 +2,7 @@ import "./filter.css";
 
 function Filter() {
   return (
-    <div className="filter">
+    <form className="filter">
       <h2>
         Search results for <b>London</b>
       </h2>
@@ -69,7 +69,7 @@ function Filter() {
           <img src="./search-icon.svg" alt="" />
         </button>
       </div>
-    </div>
+    </form>
   );
 }
 
