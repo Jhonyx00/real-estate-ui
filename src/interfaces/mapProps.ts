@@ -1,5 +1,5 @@
-import { Item } from "./item";
+import { Post } from "./post";
 
 export interface MapProps {
-  item: Item[];
+  item: Post[];
 }

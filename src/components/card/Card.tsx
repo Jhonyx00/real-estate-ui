@@ -1,33 +1,33 @@
 import { Link } from "react-router-dom";
 import "./card.css";
-import { Item } from "../../interfaces/item";
+import { Post } from "../../interfaces/post";
 
-function Card(item: Item) {
+function Card({ post }: { post: Post }) {
   return (
     <div className="card">
-      <Link to={`/${item.id}`} className="image-container">
-        <img src={item.images[0]} alt="" />
+      <Link to={`/${post.id}`} className="image-container">
+        <img src={post.images[0]} alt="" />
       </Link>
       <div className="text-container">
         <h2 className="title">
-          <Link to={`/${item.id}`}>{item.title}</Link>
+          <Link to={`/${post.id}`}>{post.title}</Link>
         </h2>
         <p className="address">
           <img src="./pin.png" alt="" />
-          <span>{item.address}</span>
+          <span>{post.address}</span>
         </p>
 
-        <p className="price">$ {item.price}</p>
+        <p className="price">$ {post.price}</p>
 
         <div className="card-bottom">
           <div className="features">
             <div className="feature">
               <img src="/bed.png" alt="" />
-              <span>{item.bedroom} bedroom</span>
+              <span>{post.bedroom} bedroom</span>
             </div>
             <div className="feature">
               <img src="/bath.png" alt="" />
-              <span>{item.bathroom} bathroom</span>
+              <span>{post.bathroom} bathroom</span>
             </div>
           </div>
 

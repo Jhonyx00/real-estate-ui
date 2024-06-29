@@ -1,23 +1,12 @@
-import { Item } from "../../interfaces/item";
-import { listData } from "../../lib/dummydata";
-import Card from "../card/Card";
 import "./list.css";
-function List() {
+import Card from "../card/Card";
+import { Post } from "../../interfaces/post";
+
+function List({ posts }: { posts: Post[] }) {
   return (
     <div className="list">
-      {listData.map((item: Item) => (
-        <Card
-          key={item.id}
-          id={item.id}
-          title={item.title}
-          images={item.images}
-          bedroom={item.bedroom}
-          bathroom={item.bathroom}
-          price={item.price}
-          address={item.address}
-          latitude={item.latitude}
-          longitude={item.longitude}
-        />
+      {posts.map((post) => (
+        <Card key={post.id} post={post}></Card>
       ))}
     </div>
   );

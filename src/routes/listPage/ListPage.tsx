@@ -1,21 +1,23 @@
+import { useLoaderData } from "react-router-dom";
 import Filter from "../../components/filter/Filter";
 import List from "../../components/list/List";
 import Map from "../../components/map/Map";
-import { Item } from "../../interfaces/item";
-import { listData } from "../../lib/dummydata";
+import { Post } from "../../interfaces/post";
 import "./listPage.css";
 
 function ListPage() {
-  const data: Item[] = listData;
+  const loaderData = useLoaderData();
+  const posts = loaderData as Array<Post>;
+
   return (
     <div className="list-page">
       <div className="list-container">
         <Filter />
-        <List></List>
+        <List posts={posts} />
       </div>
 
       <div className="map-container">
-        <Map item={data} />
+        <Map item={posts} />
       </div>
     </div>
   );
