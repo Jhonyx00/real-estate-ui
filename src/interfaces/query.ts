@@ -1,6 +1,6 @@
 export interface Query {
   type: string;
-  location: string;
+  city: string;
   minPrice: number;
   maxPrice: number;
 }

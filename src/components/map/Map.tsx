@@ -16,7 +16,7 @@ function Map(mapProps: MapProps) {
             ]
           : [52.4797, -1.90269]
       }
-      zoom={7}
+      zoom={mapProps.item.length > 1 ? 6 : 7}
       scrollWheelZoom={false}
       className="map"
     >

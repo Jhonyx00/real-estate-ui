@@ -31,27 +31,33 @@
     margin: 5px 0px;
     display: flex;
     gap: 2em;
+    justify-content: space-between;
+
     input {
       padding: 0.5em;
       border-radius: 0.6em;
       border: 1px solid gray;
     }
 
-    button {
-      border: none;
-      cursor: pointer;
-      background-color: rgb(255, 222, 104);
+    a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
 
-      width: 5em;
-      height: 3.5em;
-      border-radius: 0.8em;
-    }
+      .search-button {
+        border: none;
+        cursor: pointer;
+        background-color: rgb(255, 222, 104);
 
-    .search-button {
-      padding: 0.5em;
-      img {
-        width: 100%;
-        height: 100%;
+        width: 5em;
+        height: 3.5em;
+        border-radius: 0.8em;
+        padding: 0.6em;
+
+        img {
+          width: 100%;
+          height: 100%;
+        }
       }
     }
   }
@@ -63,14 +69,27 @@
       gap: 0.8em;
       flex-direction: column;
 
-      button {
-        width: 100%;
-        height: 3em;
+      a {
+        .search-button {
+          width: 50%;
+        }
       }
 
       input {
         border: 1px solid gray;
         padding: 1em;
+      }
+    }
+  }
+}
+
+@media (min-width: 0px) and (max-width: 597px) {
+  .searchbar {
+    form {
+      a {
+        .search-button {
+          width: 100%;
+        }
       }
     }
   }

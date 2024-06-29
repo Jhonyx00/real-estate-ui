@@ -1,6 +1,7 @@
 import { AxiosResponse } from "axios";
 import { Post } from "../interfaces/post";
 import apiRequest from "./apiRequest";
+import { defer } from "react-router-dom";
 
 export const singlePageLoader = async ({
   params,
@@ -16,9 +17,11 @@ export const listPageLoader = async ({
   request,
 }: {
   request: { url: string };
-}): Promise<Post[]> => {
+}) => {
   const query: string = request.url.split("?")[1];
-  const res: AxiosResponse = await apiRequest("/posts?" + query); //id from children of layout component
+  const res = apiRequest("/posts?" + query); //id from children of layout component
 
-  return res.data.message;
+  return defer({
+    postResponse: res,
+  });
 };
