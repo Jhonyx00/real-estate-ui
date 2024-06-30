@@ -10,7 +10,7 @@ export const singlePageLoader = async ({
 }): Promise<Post> => {
   const res: AxiosResponse<Post> = await apiRequest("/posts/" + params.id); //id from children of layout component
 
-  return res.data.message;
+  return res.data;
 };
 
 export const listPageLoader = async ({

@@ -2,7 +2,6 @@ import { PostDetail } from "./posrDetail";
 import { User } from "./user";
 
 export interface Post {
-  message: Post | PromiseLike<Post>;
   id: string;
   title: string;
   price: number;
@@ -19,4 +18,5 @@ export interface Post {
   userId: string;
   postDetail?: PostDetail;
   user: User;
+  isSaved: boolean;
 }
