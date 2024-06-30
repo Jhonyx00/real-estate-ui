@@ -25,3 +25,13 @@ export const listPageLoader = async ({
     postResponse: res,
   });
 };
+
+export const profilePageLoader = async () => {
+  const res = apiRequest("/users/profilePosts"); //id from children of layout component
+
+  //console.log(res);
+
+  return defer({
+    postResponse: res,
+  });
+};
