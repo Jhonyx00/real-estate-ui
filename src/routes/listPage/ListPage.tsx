@@ -15,7 +15,7 @@ function ListPage() {
     <div className="list-page">
       <div className="list-container">
         <Filter />
-        <Suspense fallback={<p>Loading...</p>}>
+        <Suspense fallback={<p>Loading posts...</p>}>
           <Await
             resolve={postResponse}
             errorElement={<p>Error loading posts</p>}
@@ -27,7 +27,15 @@ function ListPage() {
         </Suspense>
       </div>
 
-      <div className="map-container">{/* <Map item={posts} /> */}</div>
+      <div className="map-container">
+        <Suspense fallback={<p>Loading map...</p>}>
+          <Await resolve={postResponse} errorElement={<p>Error loading map</p>}>
+            {(postResponse: AxiosResponse) => {
+              return <Map item={postResponse.data.message} />;
+            }}
+          </Await>
+        </Suspense>
+      </div>
     </div>
   );
 }
