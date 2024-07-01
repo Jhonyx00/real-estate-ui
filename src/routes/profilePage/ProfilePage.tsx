@@ -7,10 +7,14 @@ import { AuthContext } from "../../context/AuthContext";
 import { Post } from "../../interfaces/post";
 import { AxiosResponse } from "axios";
 import "./profilePage.css";
+import { ChatData } from "../../interfaces/chatData";
 
 function ProfilePage() {
   const loaderData = useLoaderData();
-  const { postResponse } = loaderData as { postResponse: Post[] };
+  const response = loaderData as {
+    postResponse: Post[];
+    chatResponse: ChatData;
+  };
   const { updateUser, currentUser } = useContext(AuthContext);
 
   const navigate = useNavigate();
@@ -60,7 +64,7 @@ function ProfilePage() {
 
         <Suspense fallback={<p>Loading posts...</p>}>
           <Await
-            resolve={postResponse}
+            resolve={response.postResponse}
             errorElement={<p>Error loading posts</p>}
           >
             {(postResponse: AxiosResponse) => {
@@ -75,7 +79,7 @@ function ProfilePage() {
 
         <Suspense fallback={<p>Loading posts...</p>}>
           <Await
-            resolve={postResponse}
+            resolve={response.postResponse}
             errorElement={<p>Error loading posts</p>}
           >
             {(postResponse: AxiosResponse) => {
@@ -89,7 +93,16 @@ function ProfilePage() {
         </Suspense>
       </div>
       <div className="chat-container">
-        <Chat></Chat>
+        <Suspense fallback={<p>Loading chats...</p>}>
+          <Await
+            resolve={response.chatResponse}
+            errorElement={<p>Error loading chats</p>}
+          >
+            {(chatResponse: AxiosResponse) => {
+              return <Chat data={chatResponse.data} />;
+            }}
+          </Await>
+        </Suspense>
       </div>
     </div>
   );

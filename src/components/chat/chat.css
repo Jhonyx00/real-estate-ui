@@ -29,6 +29,7 @@
         height: 2em;
         object-fit: cover;
         border-radius: 50%;
+        border: 1px solid gray;
       }
 
       span {
@@ -62,45 +63,50 @@
           height: 2em;
           object-fit: cover;
           border-radius: 50%;
-        }
-
-        .close {
-          cursor: pointer;
+          border: 1px solid gray;
         }
       }
+
+      .close {
+        cursor: pointer;
+        padding: 0.2em;
+        border-radius: 50%;
+        width: 2em;
+        height: 2em;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
     }
+
     .center {
       overflow: auto;
       scrollbar-width: thin;
       padding: 0.6em;
       display: flex;
       flex-direction: column;
-      gap: 0.6em;
+      gap: 0.4em;
 
       .chat-message {
         width: 50%;
         border: 1px solid lightgray;
-        border-radius: 1em;
+        border-radius: 0.8em;
         display: flex;
         flex-wrap: wrap;
+        justify-content: flex-end;
 
         p {
           padding: 0.4em;
-          font-size: 1em;
+          font-size: 0.9em;
+          text-align: left;
+          width: 100%;
         }
-      }
-
-      .own {
-        align-self: flex-end;
-        text-align: right;
-      }
-
-      span {
-        font-size: 0.8em;
-        background-color: rgb(255, 222, 104);
-        padding: 0.4em;
-        border-radius: 0.6em;
-        margin: 0.6em;
+        span {
+          font-size: 0.8em;
+          color: rgb(124, 103, 0);
+          padding: 0.2em;
+          margin: 0em 0.4em 0.4em 0em;
+        }
       }
     }
 
@@ -117,6 +123,7 @@
         height: 100%;
         padding: 0.4em;
         font-size: 1.4em;
+        resize: none;
       }
 
       button {

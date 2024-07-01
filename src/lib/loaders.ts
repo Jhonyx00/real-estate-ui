@@ -27,11 +27,11 @@ export const listPageLoader = async ({
 };
 
 export const profilePageLoader = async () => {
-  const res = apiRequest("/users/profilePosts"); //id from children of layout component
-
-  //console.log(res);
+  const res = apiRequest("/users/profilePosts");
+  const chat = apiRequest("/chats");
 
   return defer({
     postResponse: res,
+    chatResponse: chat,
   });
 };
