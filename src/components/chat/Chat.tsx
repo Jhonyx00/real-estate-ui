@@ -14,6 +14,13 @@ function Chat({ data }: { data: Data }) {
   const [chat, setChat] = useState<ChatData | null>(null);
   const { currentUser } = useContext(AuthContext);
   const { socket } = useContext(SocketContext);
+  const messageEndRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    messageEndRef.current?.scrollIntoView({
+      behavior: "smooth",
+    });
+  }, [chat]);
 
   const textArea = useRef<HTMLTextAreaElement>(null);
 
@@ -67,7 +74,7 @@ function Chat({ data }: { data: Data }) {
     };
     //if chat is open
 
-    //TODO update last message
+    //update last message
     if (chat && socket) {
       socket.on("getMessage", (data: Message) => {
         if (chat.id === data.chatId) {
@@ -135,6 +142,7 @@ function Chat({ data }: { data: Data }) {
                 <span>{format(message.createdAt)}</span>
               </div>
             ))}
+            <div ref={messageEndRef}></div>
           </div>
           <form className="bottom" onSubmit={handleSubmit}>
             <textarea
