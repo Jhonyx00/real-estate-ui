@@ -9,12 +9,15 @@ import { Data } from "../../interfaces/data";
 import { format } from "timeago.js";
 import { SocketContext } from "../../context/SocketContext";
 import { Message } from "../../interfaces/message";
+import { useNotificationStore } from "../../lib/notificationStore";
 
 function Chat({ data }: { data: Data }) {
   const [chat, setChat] = useState<ChatData | null>(null);
   const { currentUser } = useContext(AuthContext);
   const { socket } = useContext(SocketContext);
   const messageEndRef = useRef<HTMLDivElement>(null);
+
+  const decrease = useNotificationStore((state: any) => state.decrease);
 
   useEffect(() => {
     messageEndRef.current?.scrollIntoView({
@@ -27,6 +30,10 @@ function Chat({ data }: { data: Data }) {
   const handleOpenChat = async (id: string, receiver: User) => {
     try {
       const res = await apiRequest("/chats/" + id);
+
+      if (!res.data.seenBy.includes(currentUser.id)) {
+        decrease();
+      }
       setChat({ ...res.data, receiver });
     } catch (error) {
       console.log(error);

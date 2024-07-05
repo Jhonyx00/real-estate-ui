@@ -1,7 +1,10 @@
 .chat {
   height: 100%;
-  display: grid;
-  grid-template-rows: repeat(2, calc((100vh - 60px) / 2));
+  display: flex;
+  /* grid-template-rows: repeat(2, calc((100vh - 60px) / 2)); */
+  justify-content: flex-start;
+  flex-direction: column;
+  position: relative;
 
   .messages {
     display: flex;
@@ -10,6 +13,7 @@
     overflow-y: auto;
     scrollbar-width: thin;
     padding: 1em;
+    height: 100%;
     h2 {
       font-weight: 300;
     }
@@ -43,6 +47,11 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    right: 0;
 
     .top {
       background-color: rgb(255, 222, 104);
@@ -86,6 +95,7 @@
       display: flex;
       flex-direction: column;
       gap: 0.4em;
+      height: 100%;
 
       .chat-message {
         width: 50%;
