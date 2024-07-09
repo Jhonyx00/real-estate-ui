@@ -1,7 +1,6 @@
 .homePage {
   display: flex;
   height: 100%;
-  height: calc(100vh - 60px);
   overflow-y: auto;
   scrollbar-width: thin;
 
@@ -12,7 +11,7 @@
     justify-content: center;
     height: 100%;
 
-    gap: 50px;
+    gap: 3.4em;
     padding: 1em;
 
     .title {
@@ -22,6 +21,7 @@
     .boxes {
       display: flex;
       justify-content: space-between;
+      gap: 1em;
 
       p {
         font-size: 1.2em;
@@ -83,10 +83,12 @@
         font-size: 1em;
       }
       .boxes {
+        flex-wrap: wrap;
+        justify-content: center;
         .box {
           h2,
           p {
-            font-size: 0.9em;
+            font-size: 1em;
           }
         }
       }
