@@ -85,10 +85,7 @@ function Chat({ data }: { data: Data }) {
     if (chat && socket) {
       socket.on("getMessage", (data: Message) => {
         if (chat.id === data.chatId) {
-          setChat((prev: any) => ({
-            ...prev,
-            messages: [...prev?.messages, data],
-          }));
+          setChat({ ...chat, messages: [...chat?.messages, data] });
           read();
         }
       });
@@ -111,7 +108,7 @@ function Chat({ data }: { data: Data }) {
               backgroundColor:
                 item.seenBy.includes(currentUser.id) || chat?.id === item.id
                   ? "white"
-                  : "background-color: rgb(255, 222, 104)",
+                  : "rgb(255, 222, 104)",
             }}
             onClick={() => handleOpenChat(item.id, data.receiver)}
           >
